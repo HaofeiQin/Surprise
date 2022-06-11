@@ -7,7 +7,7 @@ inherit.
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-from .. import similarities as sims
+#from .. import similarities as sims
 from .predictions import PredictionImpossible
 from .predictions import Prediction
 from .optimize_baselines import baseline_als
@@ -204,7 +204,7 @@ class AlgoBase(object):
             raise ValueError('Invalid method ' + method_name +
                              ' for baseline computation.' +
                              ' Available methods are als and sgd.')
-
+'''
     def compute_similarities(self):
         """Build the similarity matrix.
 
@@ -286,3 +286,4 @@ class AlgoBase(object):
         k_nearest_neighbors = [j for (j, _) in others[:k]]
 
         return k_nearest_neighbors
+'''
