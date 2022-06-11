@@ -10,8 +10,8 @@ from __future__ import (absolute_import, division, print_function,
 #from .. import similarities as sims
 from .predictions import PredictionImpossible
 from .predictions import Prediction
-from .optimize_baselines import baseline_als
-from .optimize_baselines import baseline_sgd
+#from .optimize_baselines import baseline_als
+#from .optimize_baselines import baseline_sgd
 
 
 class AlgoBase(object):
@@ -167,7 +167,7 @@ class AlgoBase(object):
                                     verbose=verbose)
                        for (uid, iid, r_ui_trans) in testset]
         return predictions
-
+'''
     def compute_baselines(self):
         """Compute users and items baselines.
 
@@ -204,7 +204,7 @@ class AlgoBase(object):
             raise ValueError('Invalid method ' + method_name +
                              ' for baseline computation.' +
                              ' Available methods are als and sgd.')
-'''
+
     def compute_similarities(self):
         """Build the similarity matrix.
 
