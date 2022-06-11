@@ -15,7 +15,7 @@ from .predictions import PredictionImpossible
 from ..utils import get_rng
 
 
-class SVD(AlgoBase):
+class SVD(AlgoBase1):
     """The famous *SVD* algorithm, as popularized by `Simon Funk
     <http://sifter.org/~simon/journal/20061211.html>`_ during the Netflix
     Prize. When baselines are not used, this is equivalent to Probabilistic
