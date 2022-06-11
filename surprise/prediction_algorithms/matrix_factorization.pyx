@@ -14,8 +14,10 @@ from .algo_base import AlgoBase
 from .predictions import PredictionImpossible
 from ..utils import get_rng
 
+def sigmoid(x):
+  return 1 / (1 + np.exp(-x))
 
-class SVD(AlgoBase1):
+class SVD(AlgoBase):
     """The famous *SVD* algorithm, as popularized by `Simon Funk
     <http://sifter.org/~simon/journal/20061211.html>`_ during the Netflix
     Prize. When baselines are not used, this is equivalent to Probabilistic
@@ -234,7 +236,7 @@ class SVD(AlgoBase1):
                 dot = 0  # <q_i, p_u>
                 for f in range(self.n_factors):
                     dot += qi[i, f] * pu[u, f]
-                err = r - (global_mean + bu[u] + bi[i] + dot)
+                err = sigmoid(global_mean + bu[u] + bi[i] + dot)- r
 
                 # update biases
                 if self.biased:
@@ -276,7 +278,8 @@ class SVD(AlgoBase1):
                 est = np.dot(self.qi[i], self.pu[u])
             else:
                 raise PredictionImpossible('User and item are unknown.')
-
+        
+        print("hello cat!")
         return est
 
 
